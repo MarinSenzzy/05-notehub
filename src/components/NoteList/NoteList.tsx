@@ -10,7 +10,7 @@ export default function NoteList({ notes }: NoteListProps) {
   const { mutate, isPending } = useMutation({
     mutationFn: deleteNote,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["note"] });
+      queryClient.invalidateQueries({ queryKey: ["notes"] });
     },
   });
   return (

@@ -1,13 +1,13 @@
 import css from "./SearchBox.module.css";
 
 interface SearchBoxProps {
-  search: (val: string) => void;
+  onSearch: (val: string) => void;
 }
 
-export default function SearchBox({ search }: SearchBoxProps) {
+export default function SearchBox({ onSearch }: SearchBoxProps) {
   const handleChange = (evnt: React.ChangeEvent<HTMLInputElement>) => {
     const searchText = evnt.target.value.trim();
-    search(searchText);
+    onSearch(searchText);
   };
 
   return (

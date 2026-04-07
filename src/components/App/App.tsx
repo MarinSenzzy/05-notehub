@@ -19,7 +19,7 @@ function App() {
 
   const closeModal = () => setIsModalOpen(false);
   const { data, isLoading, isError, isSuccess, error } = useQuery({
-    queryKey: ["note", search, page],
+    queryKey: ["notes", search, page],
     queryFn: () => fetchNotes({ search, page }),
     placeholderData: keepPreviousData,
     staleTime: 5 * 60 * 1000,
@@ -45,7 +45,7 @@ function App() {
     <>
       <div className={css.app}>
         <header className={css.toolbar}>
-          {<SearchBox search={handleSearch} />}
+          {<SearchBox onSearch={handleSearch} />}
           {isSuccess && data.totalPages > 1 && (
             <Pagination
               totalPages={data.totalPages}
